@@ -4,6 +4,8 @@ import Header from "./components/layout/Header";
 import Intro from "./components/layout/Intro";
 import SearchBar from "./components/layout/SearchBar";
 import Footer from "./components/layout/Footer";
+import Home from "./components/pages/Home";
+import About from "./components/pages/About";
 
 import "./App.css";
 

@@ -3,17 +3,23 @@ import { Link } from "react-router-dom";
 
 const Header = ({ title, icon }) => {
   return (
-    <div className="navbar bg-primary">
+    <div className="bg-primary">
       <h1>{title}</h1>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
+      <ul className="nav">
+        <li className="nav-item">
+          <Link className="nav-link active" to="/">
+            Home
+          </Link>
         </li>
-        <li>
-          <Link to="/about">About</Link>
+        <li className="nav-item">
+          <Link className="nav-link" to="/about">
+            About
+          </Link>
         </li>
-        <li>
-          <Link to="/browse">Browse</Link>
+        <li className="nav-item">
+          <Link className="nav-link" to="/browse">
+            Browse
+          </Link>
         </li>
       </ul>
     </div>

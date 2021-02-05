@@ -44,13 +44,13 @@ const FilmState = (props) => {
   const [state, dispatch] = useReducer(filmReducer, initialState);
 
   // Add film
-  const addFilm = (film) => (dispatch) => {
+  const addFilm = (film) => {
     film.id = uuidv4();
     dispatch({ type: ADD_FILM, payload: film });
   };
 
   // Search films
-  const searchFilms = (text) => (dispatch) => {
+  const searchFilms = (text) => {
     const results = searchForFilm(text, initialState.films);
 
     dispatch({ type: SEARCH_FILMS, payload: results });
@@ -61,6 +61,7 @@ const FilmState = (props) => {
       value={{
         films: state.films,
         addFilm,
+        searchFilms
       }}
     >
       {props.children}

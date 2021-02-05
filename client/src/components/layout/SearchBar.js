@@ -3,6 +3,10 @@ import React, { useRef } from "react";
 const SearchBar = () => {
   const text = useRef("");
 
+  const filmContext = useContext(FilmContext);
+
+  const { searchFilms } = filmContext;
+
   const onChange = (e) => {
     searchFilms(text.current.value);
   };

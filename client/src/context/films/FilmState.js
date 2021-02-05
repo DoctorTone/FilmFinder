@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
 import FilmContext from "./filmContext";
 import filmReducer from "./filmReducer";
-import { ADD_FILM } from "../types";
+import { ADD_FILM, SEARCH_FILMS } from "../types";
 
 const FilmState = (props) => {
   const initialState = {
@@ -34,9 +34,16 @@ const FilmState = (props) => {
   const [state, dispatch] = useReducer(filmReducer, initialState);
 
   // Add film
-  const addFilm = (film) => {
+  const addFilm = (film) => (dispatch) => {
     film.id = uuidv4();
     dispatch({ type: ADD_FILM, payload: film });
+  };
+
+  // Search films
+  const searchFilms = (text) => (dispatch) => {
+    const results = searchForFilm(text, initialState.films);
+
+    dispatch({ type: SEARCH_FILMS, payload: results });
   };
 
   return (

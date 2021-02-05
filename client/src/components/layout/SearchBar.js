@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
+import FilmContext from "../../context/films/filmContext";
 
 const SearchBar = () => {
   const text = useRef("");

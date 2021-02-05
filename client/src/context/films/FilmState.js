@@ -4,14 +4,14 @@ import FilmContext from "./filmContext";
 import filmReducer from "./filmReducer";
 import { ADD_FILM, SEARCH_FILMS } from "../types";
 
-const searchForFilm(name, films) {
-    for (let i=0; i<films.length; ++i) {
-        if (films[i].name.indexOf(name) >= 0) {
-            return films[i];
-        }
+function searchForFilm(name, films) {
+  for (let i = 0; i < films.length; ++i) {
+    if (films[i].name.indexOf(name) >= 0) {
+      return films[i];
     }
+  }
 
-    return null;
+  return null;
 }
 
 const FilmState = (props) => {
@@ -53,6 +53,9 @@ const FilmState = (props) => {
   const searchFilms = (text) => {
     const results = searchForFilm(text, initialState.films);
 
+    // DEBUG
+    console.log("Films = ", results);
+
     dispatch({ type: SEARCH_FILMS, payload: results });
   };
 
@@ -61,7 +64,7 @@ const FilmState = (props) => {
       value={{
         films: state.films,
         addFilm,
-        searchFilms
+        searchFilms,
       }}
     >
       {props.children}

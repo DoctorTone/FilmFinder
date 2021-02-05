@@ -4,6 +4,16 @@ import FilmContext from "./filmContext";
 import filmReducer from "./filmReducer";
 import { ADD_FILM, SEARCH_FILMS } from "../types";
 
+const searchForFilm(name, films) {
+    for (let i=0; i<films.length; ++i) {
+        if (films[i].name.indexOf(name) >= 0) {
+            return films[i];
+        }
+    }
+
+    return null;
+}
+
 const FilmState = (props) => {
   const initialState = {
     films: [

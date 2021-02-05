@@ -5,8 +5,11 @@ import filmReducer from "./filmReducer";
 import { ADD_FILM, SEARCH_FILMS } from "../types";
 
 function searchForFilm(name, films) {
+  let nameLower = name.toLowerCase();
+  let filmLower;
   for (let i = 0; i < films.length; ++i) {
-    if (films[i].name.indexOf(name) >= 0) {
+    filmLower = films[i].name.toLowerCase();
+    if (filmLower.indexOf(name) >= 0) {
       return films[i];
     }
   }

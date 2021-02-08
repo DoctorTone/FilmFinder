@@ -10,8 +10,8 @@ const App = () => {
   return (
     <FilmState>
       <Router>
-        <div className="App">
-          <Header title="Film Finder" />
+        <Header title="Film Finder" />
+        <div className="container">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />

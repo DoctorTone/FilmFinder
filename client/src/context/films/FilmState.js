@@ -9,14 +9,15 @@ function searchForFilm(name, films) {
 
   let nameLower = name.toLowerCase();
   let filmLower;
+  const found = [];
   for (let i = 0; i < films.length; ++i) {
     filmLower = films[i].name.toLowerCase();
     if (filmLower.indexOf(nameLower) >= 0) {
-      return films[i];
+      found.push(films[i]);
     }
   }
 
-  return null;
+  return found || null;
 }
 
 const FilmState = (props) => {

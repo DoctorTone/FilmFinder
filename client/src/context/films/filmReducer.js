@@ -6,7 +6,7 @@ export default (state, action) => {
       return { ...state, films: [...state.films, action.payload] };
 
     case SEARCH_FILMS:
-      return { ...state, foundFilms: [action.payload] };
+      return { ...state, foundFilms: action.payload };
 
     case CLEAR_SEARCH:
       return { ...state, foundFilms: null };

@@ -9,7 +9,7 @@ function searchForFilm(name, films) {
   let filmLower;
   for (let i = 0; i < films.length; ++i) {
     filmLower = films[i].name.toLowerCase();
-    if (filmLower.indexOf(name) >= 0) {
+    if (filmLower.indexOf(nameLower) >= 0) {
       return films[i];
     }
   }

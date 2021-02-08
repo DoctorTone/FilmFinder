@@ -42,6 +42,7 @@ const FilmState = (props) => {
         type: "blu-ray",
       },
     ],
+    foundFilms: [],
   };
 
   const [state, dispatch] = useReducer(filmReducer, initialState);
@@ -66,6 +67,7 @@ const FilmState = (props) => {
     <FilmContext.Provider
       value={{
         films: state.films,
+        foundFilms: state.foundFilms,
         addFilm,
         searchFilms,
       }}

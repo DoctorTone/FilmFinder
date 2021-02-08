@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
 import FilmContext from "./filmContext";
 import filmReducer from "./filmReducer";
-import { ADD_FILM, SEARCH_FILMS } from "../types";
+import { ADD_FILM, SEARCH_FILMS, CLEAR_SEARCH } from "../types";
 
 function searchForFilm(name, films) {
   if (!name) return [];
@@ -65,6 +65,11 @@ const FilmState = (props) => {
     dispatch({ type: SEARCH_FILMS, payload: results });
   };
 
+  // Clear search
+  const clearSearch = () => {
+    dispatch({ type: CLEAR_SEARCH });
+  };
+
   return (
     <FilmContext.Provider
       value={{
@@ -72,6 +77,7 @@ const FilmState = (props) => {
         foundFilms: state.foundFilms,
         addFilm,
         searchFilms,
+        clearSearch,
       }}
     >
       {props.children}

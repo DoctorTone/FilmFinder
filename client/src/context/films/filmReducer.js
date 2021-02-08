@@ -1,4 +1,4 @@
-import { ADD_FILM, SEARCH_FILMS } from "../types";
+import { ADD_FILM, CLEAR_SEARCH, SEARCH_FILMS } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -7,6 +7,9 @@ export default (state, action) => {
 
     case SEARCH_FILMS:
       return { ...state, foundFilms: [action.payload] };
+
+    case CLEAR_SEARCH:
+      return { ...state, foundFilms: null };
 
     default:
       return state;

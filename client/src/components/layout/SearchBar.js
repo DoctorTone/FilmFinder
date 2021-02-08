@@ -6,7 +6,7 @@ const SearchBar = () => {
 
   const filmContext = useContext(FilmContext);
 
-  const { searchFilms } = filmContext;
+  const { searchFilms, clearSearch } = filmContext;
 
   const onChange = (e) => {
     if (text.current.value !== "") {

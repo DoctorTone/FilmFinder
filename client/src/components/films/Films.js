@@ -12,9 +12,9 @@ const Films = () => {
 
   return (
     <div>
-      {foundFilms.map((film) => (
-        <FilmItem key={film.id} film={film} />
-      ))}
+      {foundFilms !== null
+        ? foundFilms.map((film) => <FilmItem key={film.id} film={film} />)
+        : null}
     </div>
   );
 };

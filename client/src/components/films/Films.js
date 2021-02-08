@@ -6,11 +6,11 @@ import FilmItem from "./FilmItem";
 const Films = () => {
   const filmContext = useContext(FilmContext);
 
-  const { films } = filmContext;
+  const { foundFilms } = filmContext;
 
   return (
     <div>
-      {films.map((film) => (
+      {foundFilms.map((film) => (
         <FilmItem key={film.id} film={film} />
       ))}
     </div>

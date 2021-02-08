@@ -7,6 +7,8 @@ const Films = () => {
   const filmContext = useContext(FilmContext);
 
   const { foundFilms } = filmContext;
+  // DEBUG
+  console.log("Found Films = ", foundFilms);
 
   return (
     <div>

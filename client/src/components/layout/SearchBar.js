@@ -9,10 +9,11 @@ const SearchBar = () => {
   const { searchFilms } = filmContext;
 
   const onChange = (e) => {
-    // DEBUG
-    console.log("Text = ", text.current.value);
-
-    searchFilms(text.current.value);
+    if (text.current.value !== "") {
+      searchFilms(text.current.value);
+    } else {
+      clearSearch();
+    }
   };
 
   return (

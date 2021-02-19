@@ -1,7 +1,11 @@
 import express from "express";
+import connectDB from "./config/db.mjs";
 import { router as auth } from "./routes/auth.mjs";
 
 const app = express();
+
+// Connect to database
+connectDB();
 
 app.get("/", (req, res) => res.json({ msg: "System OK" }));
 

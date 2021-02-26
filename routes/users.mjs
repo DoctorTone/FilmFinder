@@ -2,6 +2,7 @@ import express from "express";
 import bcrypt from "bcryptjs";
 export const router = express.Router();
 import jwt from "jsonwebtoken";
+import config from "config";
 import { check, validationResult } from "express-validator";
 
 import { User } from "../models/User.mjs";
@@ -46,6 +47,10 @@ router.post(
           id: user.id,
         },
       };
+
+      jwt.sign(payload, config.get("jwtSecret"), {
+        expiresIn: 360000,
+      });
     } catch (error) {
       console.error(err.message);
       res.status(500).send("Server error");

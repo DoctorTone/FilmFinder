@@ -1,13 +1,13 @@
 import express from "express";
-import { Film } from "../models/Film.mjs";
+import { Film } from "../models/Films.mjs";
 export const router = express.Router();
-import { auth } from "../middleware/auth.mjs";
+import { check, validationResult } from "express-validator";
 
 // Get logged in user
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const film = await Film.findById(req.film.id);
-    res.json(film);
+    const films = await Film.find(req.film.id);
+    res.json(films);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");

@@ -3,6 +3,18 @@ import { User } from "../models/User.mjs";
 export const router = express.Router();
 import bcrypt from "bcryptjs";
 import { check, validationResult } from "express-validator";
+import { auth } from "../middleware/auth.mjs";
+
+// Get logged in user
+router.get("/", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    res.json(user);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server error");
+  }
+});
 
 router.post(
   "/",

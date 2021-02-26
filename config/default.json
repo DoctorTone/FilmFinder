@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://DRT123:RAV4jan03@filmfinder.bokn0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://DRT123:RAV4jan03@filmfinder.bokn0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
 }

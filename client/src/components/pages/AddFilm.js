@@ -13,6 +13,7 @@ const AddFilm = () => {
           <div className="col-10">
             <input
               id="name"
+              name="name"
               type="text"
               className="form-control"
               placeholder="film name..."
@@ -26,6 +27,7 @@ const AddFilm = () => {
           <div className="col-5">
             <input
               id="name"
+              name="year"
               type="number"
               className="form-control"
               placeholder="film year..."

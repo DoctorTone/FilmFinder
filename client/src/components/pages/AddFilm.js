@@ -7,7 +7,7 @@ const AddFilm = () => {
       <p>You must be a registered user to add films</p>
       <form action="">
         <div className="row mb-3">
-          <label htmlFor="name" className="col-2 col-form-label">
+          <label htmlFor="name" className="col-1 col-form-label">
             Name:
           </label>
           <div className="col-10">
@@ -19,11 +19,11 @@ const AddFilm = () => {
             />
           </div>
         </div>
-        <div className="row">
-          <label htmlFor="year" className="col-2 col-form-label">
+        <div className="row mb-3">
+          <label htmlFor="year" className="col-1 col-form-label">
             Year:
           </label>
-          <div className="col-10">
+          <div className="col-5">
             <input
               id="name"
               type="number"
@@ -32,6 +32,9 @@ const AddFilm = () => {
             />
           </div>
         </div>
+        <button type="submit" className="btn btn-primary">
+          Add
+        </button>
       </form>
     </div>
   );

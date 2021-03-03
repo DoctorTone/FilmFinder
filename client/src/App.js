@@ -15,7 +15,7 @@ const App = () => {
     <AuthState>
       <FilmState>
         <Router>
-          <Header title="Film Finder" />
+          <Header title="The Vault of Horror" />
           <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />

@@ -15,7 +15,7 @@ const AddFilm = (props) => {
   return (
     <div>
       <p>Here you can add a film to the database.</p>
-      <p>You must be a registered user to add films</p>
+      <p>You must be a registered user and logged in to add films</p>
       <form action="">
         <div className="row mb-3">
           <label htmlFor="name" className="col-1 col-form-label">

@@ -2,6 +2,8 @@ import express from "express";
 import { User } from "../models/User.mjs";
 export const router = express.Router();
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import config from "config";
 import { check, validationResult } from "express-validator";
 import { auth } from "../middleware/auth.mjs";
 
@@ -28,25 +30,15 @@ router.post(
     const { username, password } = req.body;
 
     try {
-      // DEBUG
-      console.log("Finding = ", username);
-
       let user = await User.findOne({ username });
 
       if (!user) {
-        // DEBUG
-        console.log("No such user");
         return res.status(400).json({ msg: "Invalid credentials" });
       }
-
-      // DEBUG
-      console.log("Checking password = ", user.password);
 
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
-        // DEBUG
-        console.log("No match");
         return res.status(400).json({ msg: "Invalid credentials" });
       }
 

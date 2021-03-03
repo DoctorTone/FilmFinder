@@ -24,12 +24,10 @@ const AuthState = (props) => {
 
   // Load User
   const loadUser = async () => {
-    if (localStorage.token) {
-      setAuthToken(localStorage.token);
-    }
+    setAuthToken(localStorage.token);
 
     try {
-      const res = await axios.get("/api/auth");
+      const res = await axios.get("/auth");
 
       dispatch({
         type: USER_LOADED,

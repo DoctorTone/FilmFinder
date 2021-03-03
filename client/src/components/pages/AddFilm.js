@@ -1,10 +1,13 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import AuthContext from "../../context/auth/authContext";
+import FilmContext from "../../context/films/filmContext";
 
 const AddFilm = (props) => {
   const authContext = useContext(AuthContext);
+  const filmContext = useContext(FilmContext);
 
   const { isAuthenticated } = authContext;
+  const { addFilm } = filmContext;
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -12,11 +15,23 @@ const AddFilm = (props) => {
     }
   }, [isAuthenticated, props.history]);
 
+  const [film, setFilm] = useState({ name: "", year: null, genre: "Vampire" });
+  const { name, year, genre } = film;
+
+  const onChange = (e) => {
+    setFilm({ ...film, [e.target.name]: e.target.value });
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    addFilm({ name, year, genre });
+  };
+
   return (
     <div>
       <p>Here you can add a film to the database.</p>
       <p>You must be a registered user and logged in to add films</p>
-      <form action="">
+      <form onSubmit={onSubmit}>
         <div className="row mb-3">
           <label htmlFor="name" className="col-1 col-form-label">
             Name:
@@ -28,6 +43,7 @@ const AddFilm = (props) => {
               type="text"
               className="form-control"
               placeholder="film name..."
+              onChange={onChange}
             />
           </div>
         </div>
@@ -37,11 +53,12 @@ const AddFilm = (props) => {
           </label>
           <div className="col-5">
             <input
-              id="name"
+              id="year"
               name="year"
               type="number"
               className="form-control"
               placeholder="film year..."
+              onChange={onChange}
             />
           </div>
         </div>

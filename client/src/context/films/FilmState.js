@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import FilmContext from "./filmContext";
 import filmReducer from "./filmReducer";
 import { ADD_FILM, SEARCH_FILMS, CLEAR_SEARCH } from "../types";
+import axios from "axios";
 
 function searchForFilm(name, films) {
   if (!name) return [];
@@ -28,21 +29,18 @@ const FilmState = (props) => {
         name: "Taste the Blood of Dracula",
         year: "1972",
         genre: "vampire",
-        type: "video",
       },
       {
         id: 2,
         name: "The Exorcist",
         year: "1973",
         genre: "possession",
-        type: "blu-ray",
       },
       {
         id: 3,
         name: "Paranormal Activity",
         year: "2005",
         genre: "found footage",
-        type: "blu-ray",
       },
     ],
     foundFilms: [],
@@ -51,9 +49,21 @@ const FilmState = (props) => {
   const [state, dispatch] = useReducer(filmReducer, initialState);
 
   // Add film
-  const addFilm = (film) => {
-    film.id = uuidv4();
-    dispatch({ type: ADD_FILM, payload: film });
+  const addFilm = async (film) => {
+    // Add film to database
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const res = await axios.post("/films", film, config);
+      dispatch({ type: ADD_FILM, payload: res.data });
+    } catch (error) {
+      // DEBUG
+      console.log("Couldn't add film!!");
+    }
   };
 
   // Search films

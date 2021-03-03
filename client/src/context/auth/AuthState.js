@@ -48,8 +48,11 @@ const AuthState = (props) => {
       },
     };
 
+    // DEBUG
+    console.log("Formdate = ", formData);
+
     try {
-      const res = await axios.post("/api/auth", formData, config);
+      const res = await axios.post("/auth", formData, config);
 
       dispatch({
         type: LOGIN_SUCCESS,

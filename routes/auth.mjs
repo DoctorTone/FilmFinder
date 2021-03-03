@@ -25,18 +25,28 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, password } = req.body;
+    const { username, password } = req.body;
 
     try {
-      let user = await User.findOne({ name });
+      // DEBUG
+      console.log("Finding = ", username);
+
+      let user = await User.findOne({ username });
 
       if (!user) {
+        // DEBUG
+        console.log("No such user");
         return res.status(400).json({ msg: "Invalid credentials" });
       }
+
+      // DEBUG
+      console.log("Checking password = ", user.password);
 
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
+        // DEBUG
+        console.log("No match");
         return res.status(400).json({ msg: "Invalid credentials" });
       }
 

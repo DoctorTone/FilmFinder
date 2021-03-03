@@ -15,7 +15,7 @@ app.get("/", (req, res) => res.json({ msg: "System OK" }));
 
 // Routes
 app.use("/users", users);
-app.use("/add", auth);
+app.use("/auth", auth);
 app.use("/films", films);
 
 const PORT = process.env.PORT || 5000;

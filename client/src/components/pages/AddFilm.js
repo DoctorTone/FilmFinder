@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import AuthContext from "../../context/auth/authContext";
 
-const AddFilm = () => {
+const AddFilm = (props) => {
+  const authContext = useContext(AuthContext);
+
+  const { isAuthenticated } = authContext;
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      props.history.push("/Login");
+    }
+  }, [isAuthenticated, props.history]);
+
   return (
     <div>
       <p>Here you can add a film to the database.</p>

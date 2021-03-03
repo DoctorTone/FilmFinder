@@ -5,7 +5,7 @@ import AuthState from "../../context/auth/AuthState";
 const Login = (props) => {
   const authContext = useContext(AuthContext);
 
-  const { isAuthenticated } = authContext;
+  const { login, isAuthenticated } = authContext;
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -13,10 +13,27 @@ const Login = (props) => {
     }
   }, [isAuthenticated, props.history]);
 
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
+
+  const { username, password } = user;
+
+  const onChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    login({ username, password });
+  };
+
   return (
     <div>
       <p>Please enter details to login</p>
-      <form action="">
+      <form onSubmit={onSubmit}>
         <div className="row mb-3">
           <label htmlFor="username" className="col-1 col-form-label">
             Username:
@@ -27,6 +44,7 @@ const Login = (props) => {
               name="username"
               type="text"
               className="form-control"
+              onChange={onChange}
             />
           </div>
         </div>
@@ -41,6 +59,7 @@ const Login = (props) => {
               type="password"
               className="form-control"
               placeholder="Enter password..."
+              onChange={onChange}
             />
           </div>
         </div>

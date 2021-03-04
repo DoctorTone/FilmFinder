@@ -9,6 +9,8 @@ const AddFilm = (props) => {
   const { isAuthenticated } = authContext;
   const { addFilm } = filmContext;
 
+  let displayMessage = false;
+
   useEffect(() => {
     if (!isAuthenticated) {
       props.history.push("/Login");
@@ -25,6 +27,9 @@ const AddFilm = (props) => {
     e.preventDefault();
 
     addFilm({ name, year, genre });
+    displayMessage = true;
+    // DEBUG
+    console.log("Message = ", displayMessage);
   };
 
   return (
@@ -65,6 +70,9 @@ const AddFilm = (props) => {
         <button type="submit" className="btn btn-primary">
           Add
         </button>
+        {displayMessage ? (
+          <p className="mt-3 text-danger">Film added to database.</p>
+        ) : null}
       </form>
     </div>
   );

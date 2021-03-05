@@ -34,4 +34,4 @@ const MessageState = (props) => {
   );
 };
 
-export default AlertState;
+export default MessageState;

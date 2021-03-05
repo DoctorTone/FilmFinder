@@ -8,23 +8,26 @@ import Login from "./components/pages/Login";
 
 import FilmState from "./context/films/FilmState";
 import AuthState from "./context/auth/AuthState";
+import MessageState from "./context/messaging/MessageState";
 import setAuthToken from "./utils/setAuthToken";
 
 const App = () => {
   return (
     <AuthState>
       <FilmState>
-        <Router>
-          <Header title="The Vault of Horror" />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/add" component={AddFilm} />
-              <Route exact path="/login" component={Login} />
-            </Switch>
-          </div>
-        </Router>
+        <MessageState>
+          <Router>
+            <Header title="The Vault of Horror" />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/add" component={AddFilm} />
+                <Route exact path="/login" component={Login} />
+              </Switch>
+            </div>
+          </Router>
+        </MessageState>
       </FilmState>
     </AuthState>
   );

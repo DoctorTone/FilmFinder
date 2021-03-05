@@ -1,15 +1,15 @@
 import React, { useContext, useState } from "react";
 import AuthContext from "../../context/auth/authContext";
 import FilmContext from "../../context/films/filmContext";
+import MessageContext from "../../context/messaging/messageContext";
 
 const AddFilmForm = (props) => {
   const authContext = useContext(AuthContext);
   const filmContext = useContext(FilmContext);
+  const messageContext = useContext(MessageContext);
 
-  const { isAuthenticated } = authContext;
   const { addFilm } = filmContext;
-
-  let displayMessage = false;
+  const { showMessage } = messageContext;
 
   const [film, setFilm] = useState({ name: "", year: null, genre: "Vampire" });
   const { name, year, genre } = film;
@@ -17,13 +17,12 @@ const AddFilmForm = (props) => {
   const onChange = (e) => {
     setFilm({ ...film, [e.target.name]: e.target.value });
   };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
     addFilm({ name, year, genre });
-    displayMessage = true;
-    // DEBUG
-    console.log("Message = ", displayMessage);
+    showMessage("Film added to database", "info");
   };
 
   return (
@@ -64,9 +63,6 @@ const AddFilmForm = (props) => {
         <button type="submit" className="btn btn-primary">
           Add
         </button>
-        {displayMessage ? (
-          <p className="mt-3 text-danger">Film added to database.</p>
-        ) : null}
       </form>
     </div>
   );

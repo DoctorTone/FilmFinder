@@ -25,7 +25,7 @@ const MessageState = (props) => {
   return (
     <MessageContext.Provider
       value={{
-        messages: state,
+        currentMessage: state,
         showMessage,
         removeMessage,
       }}

@@ -4,11 +4,17 @@ import MessageContext from "../../context/messaging/messageContext";
 const Messages = () => {
   const messageContext = useContext(MessageContext);
 
-  const { currentMessage } = messageContext;
+  const { messages } = messageContext;
 
   return (
     <div>
-      <p className="mt-3 text-danger">{currentMessage}</p>
+      {messages !== null
+        ? messages.map((msg) => (
+            <p key="1" className="mt-3 text-danger">
+              {msg.msg}
+            </p>
+          ))
+        : null}
     </div>
   );
 };

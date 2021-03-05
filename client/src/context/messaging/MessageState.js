@@ -19,7 +19,6 @@ const MessageState = (props) => {
   const removeMessage = (msg) => {
     dispatch({
       type: REMOVE_MESSAGE,
-      payload: msg,
     });
   };
   return (

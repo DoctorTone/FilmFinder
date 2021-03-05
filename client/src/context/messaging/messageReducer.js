@@ -5,7 +5,7 @@ export default (state, action) => {
     case SHOW_MESSAGE:
       return [...state, action.payload];
     case REMOVE_MESSAGE:
-      return [...state];
+      return [];
     default:
       return state;
   }

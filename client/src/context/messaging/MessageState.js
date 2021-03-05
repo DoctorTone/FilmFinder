@@ -16,7 +16,7 @@ const MessageState = (props) => {
     });
   };
 
-  const removeMessage = (msg) => {
+  const removeMessage = () => {
     dispatch({
       type: REMOVE_MESSAGE,
     });

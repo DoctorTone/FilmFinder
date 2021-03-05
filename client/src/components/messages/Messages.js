@@ -8,7 +8,7 @@ const Messages = () => {
 
   return (
     <div>
-      {messages !== null
+      {messages.length > 0
         ? messages.map((msg) => (
             <p key="1" className="mt-3 text-danger">
               {msg.msg}

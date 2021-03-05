@@ -5,12 +5,12 @@ export default (state, action) => {
     case SHOW_MESSAGE:
       return {
         ...state,
-        msg: action.payload,
+        currentMessage: action.payload,
       };
     case REMOVE_MESSAGE:
       return {
         ...state,
-        msg: null,
+        currentMessage: null,
       };
     default:
       return state;

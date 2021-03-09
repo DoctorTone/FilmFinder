@@ -6,15 +6,18 @@ const Home = () => {
   return (
     <div>
       <div className="text-center mt-3">
-        <p>Welcome to the film finder</p>
-        <p>Search for a film you like below.</p>
+        <p>Welcome to the Vault of Horror!!</p>
+        <p>
+          If you are searching for a particular films and you think you may know
+          all or some of the title, then use the search bar below.
+        </p>
       </div>
       <SearchBar />
       <Films />
       <div className="mt-5">
         <p>
-          If you don't know the name of the film or you just want to see what's
-          available, the check the browse option at the top.
+          If you would like to browse films by type then use the Browse menu
+          option.
         </p>
       </div>
     </div>

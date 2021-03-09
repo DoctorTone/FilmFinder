@@ -1,4 +1,5 @@
 import React from "react";
+import CategoryForm from "../films/CategoryForm";
 
 const Browse = () => {
   return (
@@ -10,9 +11,7 @@ const Browse = () => {
       <div className="container">
         <div className="row">
           <div className="col-6">
-            <button className="btn btn-primary" type="button">
-              1970's
-            </button>
+            <CategoryForm buttonText="1970's" />
           </div>
           <div className="col-6">
             <button className="btn btn-primary" type="button">

@@ -3,11 +3,11 @@ import React from "react";
 const CategoryForm = ({ buttonText }) => {
   return (
     <>
-      <div>
+      <form action="">
         <button className="btn btn-primary" type="submit">
           {buttonText}
         </button>
-      </div>
+      </form>
     </>
   );
 };

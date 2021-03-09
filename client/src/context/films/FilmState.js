@@ -5,44 +5,9 @@ import filmReducer from "./filmReducer";
 import { ADD_FILM, SEARCH_FILMS, CLEAR_SEARCH } from "../types";
 import axios from "axios";
 
-function searchForFilm(name, films) {
-  if (!name) return [];
-
-  let nameLower = name.toLowerCase();
-  let filmLower;
-  const found = [];
-  for (let i = 0; i < films.length; ++i) {
-    filmLower = films[i].name.toLowerCase();
-    if (filmLower.indexOf(nameLower) >= 0) {
-      found.push(films[i]);
-    }
-  }
-
-  return found || null;
-}
-
 const FilmState = (props) => {
   const initialState = {
-    films: [
-      {
-        id: 1,
-        name: "Taste the Blood of Dracula",
-        year: "1972",
-        genre: "vampire",
-      },
-      {
-        id: 2,
-        name: "The Exorcist",
-        year: "1973",
-        genre: "possession",
-      },
-      {
-        id: 3,
-        name: "Paranormal Activity",
-        year: "2005",
-        genre: "found footage",
-      },
-    ],
+    films: [],
     foundFilms: [],
   };
 
@@ -67,13 +32,17 @@ const FilmState = (props) => {
   };
 
   // Search films
-  const searchFilms = (text) => {
-    const results = searchForFilm(text, initialState.films);
+  const searchFilms = async (text) => {
+    try {
+      const results = await axios.get("/films", text);
+      // DEBUG
+      console.log("Films = ", results);
 
-    // DEBUG
-    console.log("Films = ", results);
-
-    dispatch({ type: SEARCH_FILMS, payload: results });
+      dispatch({ type: SEARCH_FILMS, payload: results });
+    } catch (error) {
+      // DEBUG
+      console.log("Search error");
+    }
   };
 
   // Clear search

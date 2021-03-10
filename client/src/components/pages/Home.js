@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "../layout/SearchBar";
+import FilterBar from "../layout/FilterBar";
 import Films from "../films/Films";
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
           all or some of the title, then use the search bar below.
         </p>
       </div>
-      <SearchBar />
+      <FilterBar />
       <Films />
       <div className="mt-5">
         <p>

@@ -45,6 +45,8 @@ const FilmState = (props) => {
 
   // Filter (search) films
   const filterFilms = async (text) => {
+    // DEBUG
+    console.log("Text = ", text);
     dispatch({ type: FILTER_FILMS, payload: text });
   };
 

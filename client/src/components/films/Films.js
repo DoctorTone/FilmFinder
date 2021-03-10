@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import FilmContext from "../../context/films/filmContext";
 import FilmState from "../../context/films/FilmState";
 import FilmItem from "./FilmItem";
@@ -6,9 +6,12 @@ import FilmItem from "./FilmItem";
 const Films = () => {
   const filmContext = useContext(FilmContext);
 
-  const { foundFilms } = filmContext;
-  // DEBUG
-  //console.log("Found Films = ", foundFilms);
+  const { foundFilms, getFilms } = filmContext;
+
+  useEffect(() => {
+    getFilms();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div>

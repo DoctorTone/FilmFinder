@@ -34,14 +34,14 @@ const FilmState = (props) => {
   // Search films
   const searchFilms = async (text) => {
     try {
-      const results = await axios.get("/films", text);
+      const results = await axios.get("/films");
       // DEBUG
-      console.log("Films = ", results);
+      console.log("Films = ", results.data);
 
-      dispatch({ type: SEARCH_FILMS, payload: results });
+      dispatch({ type: SEARCH_FILMS, payload: results.data });
     } catch (error) {
       // DEBUG
-      console.log("Search error");
+      console.log("Search error = ", error);
     }
   };
 

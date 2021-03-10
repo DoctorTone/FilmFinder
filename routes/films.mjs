@@ -7,7 +7,10 @@ import { check, validationResult } from "express-validator";
 // Get all films
 router.get("/", async (req, res) => {
   try {
-    const films = await Film.find(req.film.id);
+    // DEBUG
+    console.log("Req = ", req.user);
+
+    const films = await Film.find();
     res.json(films);
   } catch (error) {
     console.error(error.message);

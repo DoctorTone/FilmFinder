@@ -1,4 +1,10 @@
-import { ADD_FILM, CLEAR_FILTER, GET_FILMS, FILTER_FILMS } from "../types";
+import {
+  ADD_FILM,
+  CLEAR_FILTER,
+  GET_FILMS,
+  FILTER_FILMS,
+  FILTER_FILMS_YEAR,
+} from "../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -14,6 +20,15 @@ export default (state, action) => {
         foundFilms: state.films.filter((film) => {
           const regex = new RegExp(`${action.payload}`, "gi");
           return film.name.match(regex);
+        }),
+      };
+
+    case FILTER_FILMS_YEAR:
+      return {
+        ...state,
+        foundFilms: state.films.filter((film) => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          return film.year.match(regex);
         }),
       };
 

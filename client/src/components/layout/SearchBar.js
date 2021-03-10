@@ -10,7 +10,7 @@ const SearchBar = () => {
 
   const onChange = (e) => {
     if (text.current.value !== "") {
-      searchFilms(text.current.value);
+      searchFilms();
     } else {
       clearSearch();
     }
@@ -22,6 +22,7 @@ const SearchBar = () => {
         <label htmlFor="search">Find a film</label>
         <input
           id="search"
+          name="search"
           type="search"
           placeholder="Enter film name..."
           ref={text}

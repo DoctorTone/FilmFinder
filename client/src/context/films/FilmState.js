@@ -31,14 +31,26 @@ const FilmState = (props) => {
     }
   };
 
-  // Search films
-  const searchFilms = async () => {
+  // Get films
+  const getFilms = async () => {
+    try {
+      const results = await axios.get("/films");
+
+      dispatch({ type: GET_FILMS, payload: results.data });
+    } catch (error) {
+      // DEBUG
+      console.log("Get error = ", error);
+    }
+  };
+
+  // Filter (search) films
+  const filterFilms = async () => {
     try {
       const results = await axios.get("/films");
       // DEBUG
       console.log("Films = ", results.data);
 
-      dispatch({ type: SEARCH_FILMS, payload: results.data });
+      dispatch({ type: FILTER_FILMS, payload: results.data });
     } catch (error) {
       // DEBUG
       console.log("Search error = ", error);

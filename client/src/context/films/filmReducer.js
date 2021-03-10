@@ -5,8 +5,17 @@ export default (state, action) => {
     case ADD_FILM:
       return { ...state, films: [...state.films, action.payload] };
 
-    case SEARCH_FILMS:
-      return { ...state, foundFilms: action.payload };
+    case GET_FILMS:
+      return { ...state, films: action.payload };
+
+    case FILTER_FILMS:
+      return {
+        ...state,
+        foundFilms: state.films.filter((film) => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          return film.name.match(regex);
+        }),
+      };
 
     case CLEAR_SEARCH:
       return { ...state, foundFilms: null };

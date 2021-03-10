@@ -32,7 +32,7 @@ const FilmState = (props) => {
   };
 
   // Search films
-  const searchFilms = async (text) => {
+  const searchFilms = async () => {
     try {
       const results = await axios.get("/films");
       // DEBUG

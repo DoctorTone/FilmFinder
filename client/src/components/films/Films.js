@@ -13,7 +13,7 @@ const Films = () => {
   return (
     <div>
       {foundFilms !== null
-        ? foundFilms.map((film) => <FilmItem key={film.id} film={film} />)
+        ? foundFilms.map((film) => <FilmItem key={film._id} film={film} />)
         : null}
     </div>
   );

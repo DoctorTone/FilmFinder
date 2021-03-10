@@ -1,15 +1,23 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import FilmContext from "../../context/films/filmContext";
 
 const FilterBar = () => {
   const filmContext = useContext(FilmContext);
   const text = useRef("");
 
-  const { foundFilms, filterFilms } = filmContext;
+  const { foundFilms, filterFilms, clearFilter } = filmContext;
+
+  useEffect(() => {
+    if (foundFilms === null) {
+      text.current.value = "";
+    }
+  });
 
   const onChange = (e) => {
     if (text.current.value !== "") {
       filterFilms(e.target.value);
+    } else {
+      clearFilter();
     }
   };
 

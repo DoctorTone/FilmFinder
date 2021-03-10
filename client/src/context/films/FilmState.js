@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
 import FilmContext from "./filmContext";
 import filmReducer from "./filmReducer";
-import { ADD_FILM, GET_FILMS, FILTER_FILMS, CLEAR_SEARCH } from "../types";
+import { ADD_FILM, GET_FILMS, FILTER_FILMS, CLEAR_FILTER } from "../types";
 import axios from "axios";
 
 const FilmState = (props) => {
@@ -44,22 +44,13 @@ const FilmState = (props) => {
   };
 
   // Filter (search) films
-  const filterFilms = async () => {
-    try {
-      const results = await axios.get("/films");
-      // DEBUG
-      console.log("Films = ", results.data);
-
-      dispatch({ type: FILTER_FILMS, payload: results.data });
-    } catch (error) {
-      // DEBUG
-      console.log("Search error = ", error);
-    }
+  const filterFilms = async (text) => {
+    dispatch({ type: FILTER_FILMS, payload: text });
   };
 
   // Clear search
-  const clearSearch = () => {
-    dispatch({ type: CLEAR_SEARCH });
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
   };
 
   return (
@@ -70,7 +61,7 @@ const FilmState = (props) => {
         addFilm,
         getFilms,
         filterFilms,
-        clearSearch,
+        clearFilter,
       }}
     >
       {props.children}

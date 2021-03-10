@@ -1,4 +1,4 @@
-import { ADD_FILM, CLEAR_SEARCH, GET_FILMS, FILTER_FILMS } from "../types";
+import { ADD_FILM, CLEAR_FILTER, GET_FILMS, FILTER_FILMS } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -17,7 +17,7 @@ export default (state, action) => {
         }),
       };
 
-    case CLEAR_SEARCH:
+    case CLEAR_FILTER:
       return { ...state, foundFilms: null };
 
     default:

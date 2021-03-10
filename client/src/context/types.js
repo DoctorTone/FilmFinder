@@ -2,7 +2,7 @@
 export const ADD_FILM = "ADD_FILM";
 export const GET_FILMS = "GET_FILMS";
 export const FILTER_FILMS = "FILTER_FILMS";
-export const CLEAR_SEARCH = "CLEAR_SEARCH";
+export const CLEAR_FILTER = "CLEAR_FILTER";
 
 // Authorisation actions
 export const USER_LOADED = "USER_LOADED";

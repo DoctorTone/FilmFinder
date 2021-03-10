@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
 import FilmContext from "./filmContext";
 import filmReducer from "./filmReducer";
-import { ADD_FILM, SEARCH_FILMS, CLEAR_SEARCH } from "../types";
+import { ADD_FILM, GET_FILMS, FILTER_FILMS, CLEAR_SEARCH } from "../types";
 import axios from "axios";
 
 const FilmState = (props) => {
@@ -68,7 +68,8 @@ const FilmState = (props) => {
         films: state.films,
         foundFilms: state.foundFilms,
         addFilm,
-        searchFilms,
+        getFilms,
+        filterFilms,
         clearSearch,
       }}
     >

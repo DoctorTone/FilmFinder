@@ -1,4 +1,4 @@
-import { ADD_FILM, CLEAR_SEARCH, SEARCH_FILMS } from "../types";
+import { ADD_FILM, CLEAR_SEARCH, GET_FILMS, FILTER_FILMS } from "../types";
 
 export default (state, action) => {
   switch (action.type) {

@@ -1,6 +1,7 @@
 // Film actions
 export const ADD_FILM = "ADD_FILM";
-export const SEARCH_FILMS = "SEARCH_FILMS";
+export const GET_FILMS = "GET_FILMS";
+export const FILTER_FILMS = "FILTER_FILMS";
 export const CLEAR_SEARCH = "CLEAR_SEARCH";
 
 // Authorisation actions

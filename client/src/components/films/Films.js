@@ -15,11 +15,9 @@ const Films = () => {
 
   return (
     <div className="container">
-      <div className="row">
-        {foundFilms !== null
-          ? foundFilms.map((film) => <FilmItem key={film._id} film={film} />)
-          : null}
-      </div>
+      {foundFilms !== null
+        ? foundFilms.map((film) => <FilmItem key={film._id} film={film} />)
+        : null}
     </div>
   );
 };

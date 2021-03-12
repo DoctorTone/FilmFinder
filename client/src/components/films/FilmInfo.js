@@ -4,8 +4,8 @@ const FilmInfo = ({ location }) => {
   const { data } = location;
 
   return (
-    <div>
-      <p>All the info about the film {data.name}</p>
+    <div className="text-center">
+      <h2>{data.name}</h2>
     </div>
   );
 };

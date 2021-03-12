@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import MessageContext from "./messageContext";
 import messageReducer from "./messageReducer";
-import { SHOW_MESSAGE, REMOVE_MESSAGE } from "../types";
+import { SHOW_MESSAGE, CLEAR_MESSAGE } from "../types";
 
 const MessageState = (props) => {
   const initialState = [];
@@ -16,9 +16,9 @@ const MessageState = (props) => {
     });
   };
 
-  const removeMessage = () => {
+  const clearMessage = () => {
     dispatch({
-      type: REMOVE_MESSAGE,
+      type: CLEAR_MESSAGE,
     });
   };
   return (
@@ -26,7 +26,7 @@ const MessageState = (props) => {
       value={{
         messages: state,
         showMessage,
-        removeMessage,
+        clearMessage,
       }}
     >
       {props.children}

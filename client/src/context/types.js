@@ -15,4 +15,4 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 // Messaging system
 export const SHOW_MESSAGE = "SHOW_MESSAGE";
-export const REMOVE_MESSAGE = "REMOVE_MESSAGE";
+export const CLEAR_MESSAGE = "CLEAR_MESSAGE";

@@ -22,7 +22,7 @@ const FilterBar = () => {
   };
 
   return (
-    <form action="">
+    <form action="" className="mb-3">
       <label htmlFor="search">Find a film</label>
       <input
         id="search"

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FilmItem = ({ film }) => {
   return (
@@ -8,9 +9,12 @@ const FilmItem = ({ film }) => {
           <span>{film.name}</span>
         </div>
         <div className="col-3 text-left">
-          <button type="button" className="btn btn-success">
+          <Link
+            className="btn btn-success"
+            to={{ pathname: "/filmInfo", data: film }}
+          >
             Details
-          </button>
+          </Link>
         </div>
       </div>
     </>

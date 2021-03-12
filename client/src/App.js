@@ -6,6 +6,7 @@ import About from "./components/pages/About";
 import AddFilm from "./components/pages/AddFilm";
 import Browse from "./components/pages/Browse";
 import Login from "./components/pages/Login";
+import FilmInfo from "./components/films/FilmInfo";
 
 import FilmState from "./context/films/FilmState";
 import AuthState from "./context/auth/AuthState";
@@ -26,6 +27,7 @@ const App = () => {
                 <Route exact path="/add" component={AddFilm} />
                 <Route exact path="/browse" component={Browse} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/filmInfo" component={FilmInfo} />
               </Switch>
             </div>
           </Router>

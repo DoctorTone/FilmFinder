@@ -3,7 +3,7 @@ import AuthContext from "../../context/auth/authContext";
 import FilmContext from "../../context/films/filmContext";
 import MessageContext from "../../context/messaging/messageContext";
 
-const AddFilmForm = (props) => {
+const AddFilmForm = ({ authenticated }) => {
   const authContext = useContext(AuthContext);
   const filmContext = useContext(FilmContext);
   const messageContext = useContext(MessageContext);
@@ -61,9 +61,15 @@ const AddFilmForm = (props) => {
             />
           </div>
         </div>
-        <button type="submit" className="btn btn-primary">
-          Add
-        </button>
+        {authenticated ? (
+          <button type="submit" className="btn btn-primary">
+            Add
+          </button>
+        ) : (
+          <button type="submit" className="btn btn-primary" disabled>
+            Add
+          </button>
+        )}
       </form>
     </div>
   );

@@ -9,11 +9,13 @@ const AddFilm = (props) => {
   const { isAuthenticated } = authContext;
 
   const messageContext = useContext(MessageContext);
-  const { showMessage } = messageContext;
+  const { showMessage, clearMessage } = messageContext;
 
   useEffect(() => {
     if (!isAuthenticated) {
       showMessage("You are currently not logged in", "warning");
+    } else {
+      clearMessage();
     }
 
     // eslint-disable-next-line
@@ -21,7 +23,7 @@ const AddFilm = (props) => {
 
   return (
     <div>
-      <AddFilmForm />
+      <AddFilmForm authenticated={isAuthenticated} />
       <Messages />
     </div>
   );

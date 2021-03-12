@@ -9,13 +9,11 @@ const AddFilm = (props) => {
   const { isAuthenticated } = authContext;
 
   const messageContext = useContext(MessageContext);
-  const { removeMessage } = messageContext;
+  const { showMessage } = messageContext;
 
   useEffect(() => {
     if (!isAuthenticated) {
-      props.history.push("/Login");
-    } else {
-      removeMessage();
+      showMessage("You are currently not logged in", "warning");
     }
 
     // eslint-disable-next-line

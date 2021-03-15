@@ -8,7 +8,7 @@ const FilterBar = () => {
   const { foundFilms, filterFilms, clearFilter } = filmContext;
 
   useEffect(() => {
-    if (foundFilms === null) {
+    if (foundFilms.length === 0) {
       text.current.value = "";
     }
   });

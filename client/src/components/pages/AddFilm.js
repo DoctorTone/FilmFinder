@@ -4,7 +4,7 @@ import AddFilmForm from "../films/AddFilmForm";
 import Messages from "../messages/Messages";
 import MessageContext from "../../context/messaging/messageContext";
 
-const AddFilm = (props) => {
+const AddFilm = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated } = authContext;
 
@@ -19,7 +19,7 @@ const AddFilm = (props) => {
     }
 
     // eslint-disable-next-line
-  }, [isAuthenticated, props.history]);
+  }, [isAuthenticated]);
 
   return (
     <div>

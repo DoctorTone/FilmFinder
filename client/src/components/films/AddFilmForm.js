@@ -28,8 +28,18 @@ const AddFilmForm = ({ authenticated }) => {
   return (
     <div>
       <p>Here you can add a film to the database.</p>
-      <p>You must be a registered user and logged in to add films.</p>
-      <p>Go to the Login option to log in.</p>
+      {!authenticated ? (
+        <div>
+          <p>You must be a registered user and logged in to add films.</p>
+          <p>Go to the Login option to log in.</p>
+        </div>
+      ) : (
+        <p>
+          Simply enter the details below, all fields marked with an * are
+          required
+        </p>
+      )}
+
       <form onSubmit={onSubmit}>
         <div className="row mb-3">
           <label htmlFor="name" className="col-1 col-form-label">
@@ -45,6 +55,7 @@ const AddFilmForm = ({ authenticated }) => {
               onChange={onChange}
             />
           </div>
+          <div className="col-1">*</div>
         </div>
         <div className="row mb-3">
           <label htmlFor="year" className="col-1 col-form-label">

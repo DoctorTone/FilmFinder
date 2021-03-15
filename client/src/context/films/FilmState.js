@@ -50,6 +50,10 @@ const FilmState = (props) => {
     dispatch({ type: FILTER_FILMS, payload: text });
   };
 
+  const filterFilmCategory = async (category, text) => {
+    dispatch({ type: FILTER_FILMS_CATEGORY, payload: { category, text } });
+  };
+
   // Clear search
   const clearFilter = () => {
     dispatch({ type: CLEAR_FILTER });
@@ -64,6 +68,7 @@ const FilmState = (props) => {
         getFilms,
         filterFilms,
         clearFilter,
+        filterFilmCategory,
       }}
     >
       {props.children}

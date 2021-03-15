@@ -2,7 +2,7 @@
 export const ADD_FILM = "ADD_FILM";
 export const GET_FILMS = "GET_FILMS";
 export const FILTER_FILMS = "FILTER_FILMS";
-export const FILTER_FILMS_YEAR = "FILTER_FILMS_YEAR";
+export const FILTER_FILMS_CATEGORY = "FILTER_FILMS_CATEGORY";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 
 // Authorisation actions

@@ -4,6 +4,7 @@ import {
   GET_FILMS,
   FILTER_FILMS,
   FILTER_FILMS_YEAR,
+  FILTER_FILMS_CATEGORY,
 } from "../types";
 
 export default (state, action) => {
@@ -23,12 +24,12 @@ export default (state, action) => {
         }),
       };
 
-    case FILTER_FILMS_YEAR:
+    case FILTER_FILMS_CATEGORY:
       return {
         ...state,
         foundFilms: state.films.filter((film) => {
-          const regex = new RegExp(`${action.payload}`, "gi");
-          return film.year.match(regex);
+          const regex = new RegExp(`${action.payload.text}`, "gi");
+          return film[action.payload.type].match(regex);
         }),
       };
 

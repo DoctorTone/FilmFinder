@@ -33,7 +33,7 @@ export default (state, action) => {
       };
 
     case CLEAR_FILTER:
-      return { ...state, foundFilms: null };
+      return { ...state, foundFilms: [] };
 
     default:
       return state;

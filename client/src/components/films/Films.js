@@ -6,12 +6,16 @@ import FilmItem from "./FilmItem";
 const Films = () => {
   const filmContext = useContext(FilmContext);
 
-  const { foundFilms, getFilms } = filmContext;
+  const { foundFilms, getFilms, clearFilter } = filmContext;
 
   useEffect(() => {
     getFilms();
     // eslint-disable-next-line
   }, []);
+
+  const clearAll = (e) => {
+    clearFilter();
+  };
 
   return (
     <>
@@ -24,7 +28,11 @@ const Films = () => {
               ))}
             </div>
             <div>
-              <button type="button" className="btn btn-primary">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={clearAll}
+              >
                 Clear
               </button>
             </div>

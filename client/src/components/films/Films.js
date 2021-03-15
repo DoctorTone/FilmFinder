@@ -14,11 +14,24 @@ const Films = () => {
   }, []);
 
   return (
-    <div className="container">
-      {foundFilms !== null
-        ? foundFilms.map((film) => <FilmItem key={film._id} film={film} />)
-        : null}
-    </div>
+    <>
+      <div className="container">
+        {foundFilms.length !== 0 && (
+          <div>
+            <div>
+              {foundFilms.map((film) => (
+                <FilmItem key={film._id} film={film} />
+              ))}
+            </div>
+            <div>
+              <button type="button" className="btn btn-primary">
+                Clear
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

@@ -29,7 +29,7 @@ export default (state, action) => {
         ...state,
         foundFilms: state.films.filter((film) => {
           const regex = new RegExp(`${action.payload.text}`, "gi");
-          return film[action.payload.type].match(regex);
+          return film[action.payload.category].match(regex);
         }),
       };
 

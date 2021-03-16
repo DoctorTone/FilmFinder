@@ -13,7 +13,10 @@ const Browse = () => {
           <div className="col-6">
             <Link
               className="btn btn-primary"
-              to={{ pathname: "/category", data: "197" }}
+              to={{
+                pathname: "/category",
+                data: { displayText: "1970's", searchText: "197" },
+              }}
             >
               1970's
             </Link>

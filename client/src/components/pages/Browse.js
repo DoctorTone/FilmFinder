@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryForm from "../films/CategoryForm";
+import { Link } from "react-router-dom";
 
 const Browse = () => {
   return (
@@ -11,7 +11,12 @@ const Browse = () => {
       <div className="container">
         <div className="row">
           <div className="col-6">
-            <CategoryForm buttonText="1970's" searchText="197" />
+            <Link
+              className="btn btn-primary"
+              to={{ pathname: "/category", data: "197" }}
+            >
+              1970's
+            </Link>
           </div>
           <div className="col-6">
             <button className="btn btn-primary" type="button">

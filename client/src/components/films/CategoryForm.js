@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import FilmContext from "../../context/films/filmContext";
 
-const CategoryForm = ({ buttonText }) => {
+const CategoryForm = ({ buttonText, searchText }) => {
   const filmContext = useContext(FilmContext);
 
   const { filterFilmCategory } = filmContext;
@@ -9,7 +9,7 @@ const CategoryForm = ({ buttonText }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    filterFilmCategory("year", "197");
+    filterFilmCategory("year", searchText);
   };
 
   return (

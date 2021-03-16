@@ -11,7 +11,7 @@ const Browse = () => {
       <div className="container">
         <div className="row">
           <div className="col-6">
-            <CategoryForm buttonText="1970's" />
+            <CategoryForm buttonText="1970's" searchText="197" />
           </div>
           <div className="col-6">
             <button className="btn btn-primary" type="button">
